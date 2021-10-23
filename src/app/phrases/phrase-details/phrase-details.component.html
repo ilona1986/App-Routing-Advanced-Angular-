@@ -1,0 +1,11 @@
+<div *ngIf="phrase">
+  <h3>Phrase Details</h3>
+
+  <div>ID: {{phrase?.id}}</div>
+  <div>Value: {{phrase?.value}}</div>
+  <div>Language: {{phrase?.language}}</div>
+
+  <div class="btn-group">
+    <button (click)="gotoPhrasesList()" type="button">Go to Phrases List</button>
+  </div>
+</div>

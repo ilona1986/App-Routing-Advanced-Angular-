@@ -1,0 +1,11 @@
+<h3>Phrases List</h3>
+
+<ul class="phrases">
+  <li (click)="onSelect(phrase)"
+      *ngFor="let phrase of phrases"
+    [class.selected]="isSelected(phrase)">
+     {{phrase.value}}
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
