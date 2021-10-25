@@ -6,7 +6,8 @@ import {PhraseDetailsComponent} from "./phrases/phrase-details/phrase-details.co
 
 const routes: Routes = [
   {path:'', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent}
+  {path: 'home', component: HomeComponent},
+
 ];
 
 @NgModule({
