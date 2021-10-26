@@ -2,10 +2,27 @@
   <h3>Phrase Details</h3>
 
   <div>ID: {{phrase?.id}}</div>
-  <div>Value: {{phrase?.value}}</div>
-  <div>Language: {{phrase?.language}}</div>
+
+  <div *ngIf="authService.isLoggedIn; then thenBlock else elseBlock"></div>
 
   <div class="btn-group">
     <button (click)="gotoPhrasesList()" type="button">Go to Phrases List</button>
   </div>
 </div>
+
+<ng-template #thenBlock>
+<div>
+  <label>Value: <input [(ngModel)]="editValue" type="text"></label>
+</div>
+  <div>
+    <label>Language: <input [(ngModel)]="editLanguage" type="text"></label>
+  </div>
+  <div *ngIf="isChanged()" class="btn-group">
+    <button type="button" (click)="save()">Save</button>
+  </div>
+</ng-template>
+
+<ng-template #elseBlock>
+  <div>Value: {{phrase?.value}}</div>
+  <div>Language: {{phrase?.language}}</div>
+</ng-template>

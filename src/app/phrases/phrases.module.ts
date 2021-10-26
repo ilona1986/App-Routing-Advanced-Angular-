@@ -5,6 +5,7 @@ import { PhrasesRoutingModule } from './phrases-routing.module';
 import {PhrasesListComponent} from "./phrases-list/phrases-list.component";
 import {PhraseDetailsComponent} from "./phrase-details/phrase-details.component";
 import { PhraseHomeComponent } from './phrase-home/phrase-home.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PhraseHomeComponent } from './phrase-home/phrase-home.component';
   ],
   imports: [
     CommonModule,
-    PhrasesRoutingModule
+    PhrasesRoutingModule,
+    FormsModule
   ]
 })
 export class PhrasesModule { }
