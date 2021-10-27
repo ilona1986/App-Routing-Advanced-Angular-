@@ -3,13 +3,15 @@ import {PhraseService} from "../../shared/phrase.service";
 import {Phrase} from "../../shared/phrases.class";
 import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../../shared/auth.service";
+import {CanComponentDeactivate} from "../../shared/can-deactivate.guard";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-phrase-details',
   templateUrl: './phrase-details.component.html',
   styleUrls: ['./phrase-details.component.scss']
 })
-export class PhraseDetailsComponent implements OnInit {
+export class PhraseDetailsComponent implements OnInit, CanComponentDeactivate {
 
   phrase!: Phrase | undefined;
   editValue!: string;
@@ -55,5 +57,11 @@ export class PhraseDetailsComponent implements OnInit {
       this.phrase.value = this.editValue;
       this.phrase.language = this. editLanguage;
     }
+  }
+
+  canDeactivate(): Observable<boolean> | Promise<boolean> | boolean  {
+    if (!this.phrase) return true
+    if (!this.isChanged()) return true
+    return confirm('Вы не сохранили изменения. \n Данные будут потеряны.\nУйти со страницы в любом случае?');
   }
 }
