@@ -1,7 +1,7 @@
-<div *ngIf="phrase">
+<div>
   <h3>Phrase Details</h3>
 
-  <div>ID: {{phrase?.id}}</div>
+  <div>ID: {{phrase.id}}</div>
 
   <div *ngIf="authService.isLoggedIn; then thenBlock else elseBlock"></div>
 
@@ -23,6 +23,6 @@
 </ng-template>
 
 <ng-template #elseBlock>
-  <div>Value: {{phrase?.value}}</div>
-  <div>Language: {{phrase?.language}}</div>
+  <div>Value: {{phrase.value}}</div>
+  <div>Language: {{phrase.language}}</div>
 </ng-template>
